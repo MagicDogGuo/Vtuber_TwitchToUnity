@@ -1,111 +1,113 @@
-# TwitchToUnity - VRM Virtual Streamer System
+# TwitchToUnity - VRM虛擬主播系統
 
-A real-time virtual streamer system based on Unity and VRM, supporting VRM character control through Twitch chat and facial tracking.
+一個基於Unity和VRM的即時虛擬主播系統，支援透過Twitch聊天和面部追蹤來控制VRM角色。
 
-## 🎯 Project Overview
+> **English Version**: [README.md](README.md)
 
-TwitchToUnity is an innovative virtual streamer solution that combines the following technologies:
-- **Unity 2019.4.12f1** - Game Engine
-- **VRM** - Virtual Character Model Format
-- **PyTorch** - Facial Tracking AI Model (based on [VTuber-MomoseHiyori](https://github.com/MagicDogGuo/VTuber-MomoseHiyori) project)
-- **Twitch IRC** - Real-time Chat Integration
+## 🎯 專案簡介
 
-The system can receive facial tracking data in real-time and map it to VRM character BlendShape animations, while supporting interactive control through Twitch chat.
+TwitchToUnity是一個創新的虛擬主播解決方案，結合了以下技術：
+- **Unity 2019.4.12f1** - 遊戲引擎
+- **VRM** - 虛擬角色模型格式
+- **PyTorch** - 面部追蹤AI模型（基於[VTuber-MomoseHiyori](https://github.com/MagicDogGuo/VTuber-MomoseHiyori)專案）
+- **Twitch IRC** - 即時聊天整合
 
-> **Note**: This project is based on the facial tracking technology from the [VTuber-MomoseHiyori](https://github.com/MagicDogGuo/VTuber-MomoseHiyori) project, replacing Live2D support with VRM support.
+系統能夠即時接收面部追蹤資料，並將其映射到VRM角色的BlendShape動畫，同時支援透過Twitch聊天進行互動控制。
 
-## 🛠️ Technology Stack
+> **注意**：本專案基於[VTuber-MomoseHiyori](https://github.com/MagicDogGuo/VTuber-MomoseHiyori)專案的面部追蹤技術，將Live2D支援替換為VRM支援。
 
-### Core Components
-- **Unity 2019.4.12f1** - Main Development Environment
-- **VRM 0.x** - Virtual Character Model Support
-- **UniGLTF** - GLTF/GLB File Processing
-- **MToon** - VRM-specific Shader
+## 🛠️ 技術棧
 
-### Facial Tracking
-- **PyTorch** - Deep Learning Framework (for facial tracking models)
-- **Socket Communication** - Real-time Data Transmission
-- **BlendShape Driver** - Facial Expression Animation
+### 核心組件
+- **Unity 2019.4.12f1** - 主開發環境
+- **VRM 0.x** - 虛擬角色模型支援
+- **UniGLTF** - GLTF/GLB檔案處理
+- **MToon** - VRM專用著色器
 
-### Live Streaming Integration
-- **Twitch IRC** - Chat Bot
-- **OAuth Authentication** - Twitch API Access
-- **Real-time Interaction** - Audience Participation Features
+### 面部追蹤
+- **PyTorch** - 深度學習框架（用於面部追蹤模型）
+- **Socket通訊** - 即時資料傳輸
+- **BlendShape驅動** - 面部表情動畫
 
-## 📋 System Requirements
+### 直播整合
+- **Twitch IRC** - 聊天機器人
+- **OAuth認證** - Twitch API存取
+- **即時互動** - 觀眾參與功能
 
-### Development Environment
-- Unity 2019.4.12f1 or higher
+## 📋 系統需求
+
+### 開發環境
+- Unity 2019.4.12f1 或更高版本
 - Windows 10/11
-- Visual Studio 2019/2022 or VS Code
+- Visual Studio 2019/2022 或 VS Code
 
-### Runtime Dependencies
-- **Python 3.8** (Anaconda recommended)
-- **VTuber-MomoseHiyori Project** - Facial Tracking Core
-- Network connection (for Twitch integration)
+### 執行時依賴
+- **Python 3.8** (推薦使用Anaconda)
+- **VTuber-MomoseHiyori專案** - 面部追蹤核心
+- 網路連線（用於Twitch整合）
 
-### Optional Dependencies
-- **CUDA v10.2 & CUDNN v8.3.1** (GPU acceleration)
-- **dlib v19.24.2** (CPU environment)
+### 可選依賴
+- **CUDA v10.2 & CUDNN v8.3.1** (GPU加速)
+- **dlib v19.24.2** (CPU環境)
 
-## 🚀 Installation Guide
+## 🚀 安裝說明
 
-### 1. Clone the Project
+### 1. 複製專案
 ```bash
 git clone https://github.com/MagicDogGuo/Vtuber_TwitchToUnity.git
 cd Vtuber_TwitchToUnity
 ```
 
-### 2. Open Unity Project
-- Launch Unity Hub
-- Add project to Unity Hub
-- Open project with Unity 2019.4.12f1
+### 2. 開啟Unity專案
+- 啟動Unity Hub
+- 新增專案到Unity Hub
+- 使用Unity 2019.4.12f1開啟專案
 
-### 3. Install Dependencies
-The project will automatically install the following Unity packages:
+### 3. 安裝依賴套件
+專案會自動安裝以下Unity套件：
 - VRM
 - UniGLTF
 - TextMesh Pro
 - Post Processing
 
-### 4. Configure PyTorch Environment
+### 4. 設定PyTorch環境
 
-#### Method 1: Using VTuber-MomoseHiyori Project (Recommended)
+#### 方法一：使用VTuber-MomoseHiyori專案（推薦）
 
-1. **Clone Facial Tracking Project**
+1. **複製面部追蹤專案**
 ```bash
 git clone https://github.com/MagicDogGuo/VTuber-MomoseHiyori.git
 cd VTuber-MomoseHiyori
 ```
 
-2. **Create Python Environment**
+2. **建立Python環境**
 ```bash
-# Create environment using conda
+# 使用conda建立環境
 conda env create -f environment.yml
 conda activate l2d-vtb
 
-# Install dependencies
+# 安裝依賴
 pip install -r requirements.txt
 ```
 
-3. **Choose Runtime Environment**
+3. **選擇執行環境**
 
-**CPU Environment (Recommended for VTuber, Higher FPS)**
+**CPU環境（推薦用於VTuber，FPS更高）**
 ```bash
-# Install dlib
+# 安裝dlib
 conda install -c conda-forge dlib
 
-# Test camera
+# 測試攝影機
 python main.py --debug
 
-# Connect to Unity
+# 連線Unity
 python main.py --debug --connect
 ```
 
-**GPU Environment (More Stable Recognition, Lower FPS)**
+**GPU環境（識別更穩定，但FPS較低）**
 ```bash
-# Windows Users
-# Install CUDA v10.2 & CUDNN v8.3.1
+# Windows使用者
+# 安裝CUDA v10.2 & CUDNN v8.3.1
 pip install torch==1.10.2+cu102 torchvision==0.11.3+cu102 torchaudio===0.10.2+cu102 -f https://download.pytorch.org/whl/cu102/torch_stable.html
 
 # MacOS (Intel)
@@ -114,205 +116,205 @@ conda install pytorch torchvision torchaudio -c pytorch
 # MacOS (Apple M1)
 conda install pytorch torchvision torchaudio -c pytorch-nightly
 
-# Test camera
+# 測試攝影機
 python main.py --debug --gpu
 
-# Connect to Unity
+# 連線Unity
 python main.py --debug --gpu --connect
 ```
 
-#### Method 2: Manual PyTorch Installation
+#### 方法二：手動安裝PyTorch
 ```bash
-# Install Python dependencies
+# 安裝Python依賴
 pip install torch torchvision
 pip install opencv-python
 pip install numpy
 ```
 
-### 5. Configure Twitch Settings
-1. **Get OAuth Token**: Visit https://twitchapps.com/tmi/ to get your OAuth token
-2. **Configure Unity Project**:
-   - Open Twitch settings UI in Unity project
-   - Enter your OAuth token in Password field (format: `oauth:your_token_here`)
-   - Enter your Twitch username and channel name
-   - Click Connect button to save settings
+### 5. 設定Twitch設定
+1. **取得OAuth令牌**：造訪 https://twitchapps.com/tmi/ 取得您的OAuth令牌
+2. **設定Unity專案**：
+   - 開啟Unity專案中的Twitch設定UI
+   - 在Password欄位中輸入您的OAuth令牌（格式：`oauth:your_token_here`）
+   - 輸入您的Twitch使用者名稱和頻道名稱
+   - 點擊Connect按鈕儲存設定
 
-> **Security Reminder**: OAuth tokens are sensitive information. Do not hardcode them in code or upload to version control systems. The project will automatically save settings to local PlayerPrefs.
+> **安全提醒**：OAuth令牌是敏感資訊，請勿在程式碼中硬編碼或上傳到版本控制系統。專案會自動將設定儲存到本地PlayerPrefs中。
 
-## 🎮 Usage Guide
+## 🎮 使用方法
 
-### Starting Virtual Streamer
+### 啟動虛擬主播
 
-1. **Start Python Facial Tracking Service**
-   - Open command line, navigate to VTuber-MomoseHiyori directory
-   - Activate conda environment: `conda activate l2d-vtb`
-   - Run facial tracking:
-     - CPU environment: `python main.py --debug --connect`
-     - GPU environment: `python main.py --debug --gpu --connect`
+1. **啟動Python面部追蹤服務**
+   - 開啟命令列，進入VTuber-MomoseHiyori目錄
+   - 啟動conda環境：`conda activate l2d-vtb`
+   - 執行面部追蹤：
+     - CPU環境：`python main.py --debug --connect`
+     - GPU環境：`python main.py --debug --gpu --connect`
 
-2. **Start Unity Project**
-   - Open Unity project
-   - Load main scene: `Assets/_Scenes/Play_TopytorchandToTwitch.unity`
-   - Configure port number (default: 14514)
-   - Run Unity project
+2. **啟動Unity專案**
+   - 開啟Unity專案
+   - 載入主場景：`Assets/_Scenes/Play_TopytorchandToTwitch.unity`
+   - 設定連接埠號（預設：14514）
+   - 執行Unity專案
 
-3. **Verify Connection**
-   - Ensure Python service shows "Connected to Unity"
-   - Unity should display real-time facial parameter updates
+3. **驗證連線**
+   - 確保Python服務顯示"Connected to Unity"
+   - Unity中應該能看到面部參數即時更新
 
-### Scene Description
+### 場景說明
 
-The project includes the following main scenes:
+專案包含以下主要場景：
 
-- **ToPytouch.unity** - PyTorch Facial Tracking Integration Scene
-  - Contains facial tracking data reception and VRM character driving
-  - Used for testing facial tracking functionality
+- **ToPytouch.unity** - PyTorch面部追蹤整合場景
+  - 包含面部追蹤資料接收和VRM角色驅動
+  - 用於測試面部追蹤功能
 
-- **ToTwitch.unity** - Twitch Chat Integration Scene
-  - Contains Twitch chat connection and interaction features
-  - Used for testing Twitch integration functionality
+- **ToTwitch.unity** - Twitch聊天整合場景  
+  - 包含Twitch聊天連線和互動功能
+  - 用於測試Twitch整合功能
 
-- **Play_TopytorchandToTwitch.unity** - Complete Functionality Scene
-  - Integrates both facial tracking and Twitch chat functionality
-  - Main scene containing complete VRM virtual streamer system
-  - Supports real-time facial expression mapping and audience interaction
+- **Play_TopytorchandToTwitch.unity** - 完整功能場景
+  - 同時整合面部追蹤和Twitch聊天功能
+  - 主場景，包含完整的VRM虛擬主播系統
+  - 支援即時面部表情映射和觀眾互動
 
-### Core Scripts
+### 核心腳本
 
-#### Facial Tracking Related
-- **Face/Momose.cs** - Facial Data Reception and Socket Communication
-- **Face/FaceBlendShapeDriver.cs** - VRM Facial Animation Driver
+#### 面部追蹤相關
+- **Face/Momose.cs** - 面部資料接收和Socket通訊
+- **Face/FaceBlendShapeDriver.cs** - VRM面部動畫驅動
 
-#### Twitch Integration Related
-- **TwitchChat.cs** - Twitch Chat Core Functionality
-- **TwitchChatSettingsUI.cs** - Twitch Settings UI Interface
-- **ITwitchCommandHandler.cs** - Twitch Command Handler Interface
-- **MessageEffect.cs** - Chat Message Effects
+#### Twitch整合相關
+- **TwitchChat.cs** - Twitch聊天核心功能
+- **TwitchChatSettingsUI.cs** - Twitch設定UI介面
+- **ITwitchCommandHandler.cs** - Twitch命令處理介面
+- **MessageEffect.cs** - 聊天訊息特效
 
-#### Other Features
-- **RPGPlayer.cs** - Character Control
-- **Particle.cs** - Particle Effects
+#### 其他功能
+- **RPGPlayer.cs** - 角色控制
+- **Particle.cs** - 粒子效果
 
-## 🎭 VRM Character Configuration
+## 🎭 VRM角色設定
 
-### BlendShape Mapping
-The system supports the following facial expression mappings:
-- Eye opening/closing (left/right)
-- Eyebrow position (left/right)
-- Mouth opening/closing
-- Mouth width
-- Head rotation (X/Y/Z axis)
+### BlendShape映射
+系統支援以下面部表情映射：
+- 眼睛開合（左/右）
+- 眉毛位置（左/右）
+- 嘴巴開合
+- 嘴巴寬度
+- 頭部旋轉（X/Y/Z軸）
 
-### Custom BlendShape
-Modify BlendShape names in `Face/FaceBlendShapeDriver.cs` to match your VRM model:
+### 自訂BlendShape
+在 `Face/FaceBlendShapeDriver.cs` 中修改BlendShape名稱以匹配您的VRM模型：
 ```csharp
 public string eyeCloseLeftName = "Face.M_F00_000_00_Fcl_EYE_Close_L";
 public string eyeCloseRightName = "Face.M_F00_000_00_Fcl_EYE_Close_R";
-// ... other BlendShape configurations
+// ... 其他BlendShape設定
 ```
 
-## 🔧 Advanced Configuration
+## 🔧 進階設定
 
-### Network Settings
-- Default port: 14514
-- Local IP: 127.0.0.1
-- Supports custom port configuration
+### 網路設定
+- 預設連接埠：14514
+- 本地IP：127.0.0.1
+- 支援自訂連接埠設定
 
-### Smoothing Settings
-- Facial expression smoothing: 0-1 range
-- Head rotation smoothing
-- Position offset adjustment
+### 平滑設定
+- 面部表情平滑：0-1範圍
+- 頭部旋轉平滑
+- 位置偏移調整
 
-### Debug Features
-- Real-time facial parameter display
-- Network connection status monitoring
-- BlendShape weight debugging
+### 除錯功能
+- 面部參數即時顯示
+- 網路連線狀態監控
+- BlendShape權重除錯
 
-## 📡 Twitch Integration
+## 📡 Twitch整合
 
-### Chat Commands
-The system supports interaction through Twitch chat:
-- Expression control
-- Action triggering
-- Audience interaction
+### 聊天命令
+系統支援透過Twitch聊天進行互動：
+- 表情控制
+- 動作觸發
+- 觀眾互動
 
-### OAuth Configuration
-1. Visit https://twitchapps.com/tmi/ to get OAuth token
-2. Configure in Unity project's Twitch settings UI:
-   - Password field: Enter OAuth token (format: `oauth:your_token_here`)
-   - Username field: Enter your Twitch username
-   - Channel field: Enter your channel name
-3. Click Connect button to save settings
+### OAuth設定
+1. 造訪 https://twitchapps.com/tmi/ 取得OAuth令牌
+2. 在Unity專案的Twitch設定UI中設定：
+   - Password欄位：輸入OAuth令牌（格式：`oauth:your_token_here`）
+   - Username欄位：輸入您的Twitch使用者名稱
+   - Channel欄位：輸入您的頻道名稱
+3. 點擊Connect按鈕儲存設定
 
-> **Security Reminder**: OAuth tokens are sensitive information. Do not hardcode them in code or upload to version control systems.
+> **安全提醒**：OAuth令牌是敏感資訊，請勿在程式碼中硬編碼或上傳到版本控制系統。
 
-## 🐛 Troubleshooting
+## 🐛 故障排除
 
-### Common Issues
+### 常見問題
 
-1. **Port Occupied**: Modify port number or close occupying processes
-2. **VRM Model Not Displaying**: Check BlendShape name matching
-3. **Facial Tracking Not Working**:
-   - Confirm Python service is running
-   - Check if camera is occupied by other programs
-   - Verify conda environment is correctly activated
-4. **Twitch Connection Failed**: Check OAuth token and network connection
-5. **Python Environment Issues**:
-   - Ensure correct Python version (3.8)
-   - Check if conda environment is correctly created
-   - Verify all dependency packages are installed
-6. **Build Connection Failed**:
-   - Ensure Unity and Python use same port number (default 14514)
-   - Check firewall settings, ensure port is not blocked
-   - View connection status logs in Unity console
-   - Ensure Python service runs before Unity starts
+1. **連接埠被佔用**：修改連接埠號或關閉佔用程序
+2. **VRM模型不顯示**：檢查BlendShape名稱匹配
+3. **面部追蹤不工作**：
+   - 確認Python服務正在執行
+   - 檢查攝影機是否被其他程式佔用
+   - 驗證conda環境是否正確啟動
+4. **Twitch連線失敗**：檢查OAuth令牌和網路連線
+5. **Python環境問題**：
+   - 確保使用正確的Python版本（3.8）
+   - 檢查conda環境是否正確建立
+   - 驗證所有依賴套件已安裝
+6. **建置後連線失敗**：
+   - 確保Unity和Python使用相同的連接埠號（預設14514）
+   - 檢查防火牆設定，確保連接埠未被阻擋
+   - 在Unity控制台查看連線狀態日誌
+   - 確保Python服務在Unity啟動前執行
 
-### Performance Optimization Tips
+### 效能最佳化建議
 
-- **Use Spotlight**: Brighter facial lighting works better than natural light
-- **Adjust Facial Position**: Place face in center of frame, avoid boundaries
-- **Avoid Glasses**: May affect eye recognition accuracy
-- **Expose Forehead**: Long hair covering eyes may affect recognition
+- **使用聚光燈**：讓面部更亮，效果比自然光更好
+- **調整面部位置**：將面部放在畫面中央，不要靠近邊界
+- **避免戴眼鏡**：可能影響眼睛識別精度
+- **露出額頭**：長髮遮住眼睛可能影響識別
 
-### Debug Mode
-Enable debug logging:
+### 除錯模式
+啟用除錯日誌：
 ```csharp
 private bool enableFaceParamsDebug = true;
 ```
 
-### Test Camera
-Test camera functionality before connecting to Unity:
+### 測試攝影機
+在連線Unity之前，先測試攝影機是否正常工作：
 ```bash
-# CPU environment
+# CPU環境
 python main.py --debug
 
-# GPU environment
+# GPU環境
 python main.py --debug --gpu
 ```
 
-## 📄 License
+## 📄 授權
 
-This project is released under open source license. Please check LICENSE file for specific license information.
+本專案基於開源授權發布，具體授權資訊請查看LICENSE檔案。
 
-## 🙏 Acknowledgments
+## 🙏 致謝
 
-This project is based on the following open source projects:
-- **[VTuber-MomoseHiyori](https://github.com/MagicDogGuo/VTuber-MomoseHiyori)** - Facial Tracking Core Algorithm
-- **VRM** - Virtual Character Model Format
-- **Unity** - Game Engine
+本專案基於以下開源專案：
+- **[VTuber-MomoseHiyori](https://github.com/MagicDogGuo/VTuber-MomoseHiyori)** - 面部追蹤核心演算法
+- **VRM** - 虛擬角色模型格式
+- **Unity** - 遊戲引擎
 
-Thanks to original project author [Kennard Wang](https://github.com/KennardWang) for providing excellent facial tracking technology.
+感謝原專案作者[Kennard Wang](https://github.com/KennardWang)提供的優秀面部追蹤技術。
 
-## 🤝 Contributing
+## 🤝 貢獻
 
-Welcome to submit Issues and Pull Requests to improve the project!
+歡迎提交Issue和Pull Request來改進專案！
 
-## 📞 Support
+## 📞 支援
 
-For questions or suggestions, please contact through:
-- Submit GitHub Issue
-- Send email to project maintainer
+如有問題或建議，請透過以下方式聯絡：
+- 提交GitHub Issue
+- 發送郵件至專案維護者
 
 ---
 
-**Note**: This project requires correct OAuth token and network settings to function properly. Please ensure compliance with Twitch's terms of service and API usage guidelines.
+**注意**：本專案需要設定正確的OAuth令牌和網路設定才能正常工作。請確保遵循Twitch的服務條款和API使用規範。
