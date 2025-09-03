@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 0
+    path: Assets/UnityAssets/Scenes/Start.unity
+    guid: 4f2ae96ab8bfaa343b60cda34de39e8a
+  - enabled: 0
+    path: Assets/UnityAssets/Scenes/VTuber.unity
+    guid: 3b911c3f846550c40b4ccebe2ac122db
+  - enabled: 1
+    path: Assets/_Scenes/ToPytouch.unity
+    guid: 5cfde412f3410b14492f77540d1154bf
+  m_configObjects: {}
