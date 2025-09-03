@@ -2,6 +2,8 @@
 
 一个基于Unity和VRM的实时虚拟主播系统，支持通过Twitch聊天和面部追踪来控制VRM角色。
 
+> **English Version**: [README_EN.md](README_EN.md)
+
 ## 🎯 项目简介
 
 TwitchToUnity是一个创新的虚拟主播解决方案，结合了以下技术：
