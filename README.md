@@ -5,6 +5,7 @@ A real-time virtual streamer system based on Unity and VRM, supporting VRM chara
 > **中文版本**: [README_CN.md](README_CN.md)
 
 ![recordemo)](https://github.com/user-attachments/assets/2916029f-f175-4e08-b2dd-6d7eb7d4d67b)
+![recordemo2](https://github.com/user-attachments/assets/91bb0341-8124-45a3-ada2-bbe114e4e555)
 
 ## 🎯 Project Overview
 
