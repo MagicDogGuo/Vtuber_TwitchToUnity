@@ -3,6 +3,7 @@
 A real-time virtual streamer system based on Unity and VRM, supporting VRM character control through Twitch chat and facial tracking.
 
 > **中文版本**: [README_CN.md](README_CN.md)
+![recordemo)](https://github.com/user-attachments/assets/2916029f-f175-4e08-b2dd-6d7eb7d4d67b)
 
 ## 🎯 Project Overview
 
